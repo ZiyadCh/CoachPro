@@ -26,12 +26,12 @@ if ($_POST) {
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-$sql = "INSERT INTO user (prenom, nom, email, role, password_hash) 
+    $sql = "INSERT INTO user (prenom, nom, email, role, password_hash) 
         VALUES ('$prenom', '$nom', '$email', 'coach', '$hash')";
     $conn->query($sql);
 
     $user_id = $conn->insert_id;
-$sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certification) 
+    $sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certification) 
          VALUES ($user_id, '$biographie', '$photo', $discipline, '$certif')";
 
     $conn->query($sql2);
@@ -44,4 +44,3 @@ $sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certifica
     header("Location: /main/coach.dashboard.php");
     exit();
 }
-?>

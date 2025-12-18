@@ -8,7 +8,7 @@ $database = 'coachpro';
 
 $conn = mysqli_connect($host, $username, $password, $database);
 if (!$conn) {
-    die("Connexion impossible : " . mysqli_connect_error());
+    die("Connexion erreor : " . mysqli_connect_error());
 }
 
 if ($_POST) {
@@ -30,9 +30,9 @@ if ($_POST) {
             $_SESSION['role']    = $user['role'];
 
             if ($user['role'] == 'coach') {
-                header("Location: coach.dashboard.php");
+                header("Location: /main/coach.dashboard.php");
             } else if($user['role'] == 'sportif') {
-                header("Location: sportif.dashboard.php");
+                header("Location: /main/sportif.dashboard.php");
             }
             exit();
 

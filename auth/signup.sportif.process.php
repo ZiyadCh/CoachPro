@@ -21,7 +21,7 @@ if ($_POST) {
     $password = $_POST['password'];
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
-$sql = "INSERT INTO user (prenom, nom, email, role, password_hash) 
+    $sql = "INSERT INTO user (prenom, nom, email, role, password_hash) 
         VALUES ('$prenom', '$nom', '$email', 'sportif', '$hash')";
 
     $conn->query($sql);
@@ -36,4 +36,3 @@ $sql = "INSERT INTO user (prenom, nom, email, role, password_hash)
     header("Location: /main/sportif.dashboard.php");
     exit();
 }
-?>

@@ -46,7 +46,7 @@ session_start();
                 <p class="text-muted">Connectez-vous pour accéder à votre espace</p>
             </div>
 
-            <form action="/main/coach.dashboard.php" method="POST" id="loginForm">
+            <form action="/auth/login.process.php" method="POST" id="loginForm">
 
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
