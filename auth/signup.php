@@ -41,18 +41,18 @@
 
         <div class="row g-4">
             <div class="col-6">
-                <button class="btn btn-sportif text-white w-100 role-btn" onclick="showForm('sportif')">
+                <a href="./signup.sportif.php" class="btn btn-sportif text-white w-100 role-btn" >
                     <i class="fas fa-running fa-2x mb-2"></i><br>
                     Je suis <strong>Sportif</strong><br>
                     <small>Je cherche un coach</small>
-                </button>
+    </a>
             </div>
             <div class="col-6">
-                <button class="btn btn-coach text-white w-100 role-btn" onclick="showForm('coach')">
+                <a href="./signup.coach.php" class="btn btn-coach text-white w-100 role-btn" >
                     <i class="fas fa-chalkboard-teacher fa-2x mb-2"></i><br>
                     Je suis <strong>Coach</strong><br>
                     <small>Je propose mes services</small>
-                </button>
+    </a>
             </div>
         </div>
 
@@ -62,46 +62,7 @@
     </div>
 
     <!-- Étape 2 : Formulaire Sportif -->
-    <div class="signup-card mx-auto" id="formSportif" style="display:none;">
-        <h4 class="text-center mb-4"><i class="fas fa-running text-sport"></i> Inscription Sportif</h4>
-        <form id="signupSportifForm" action="process_signup.php" method="POST">
-            <input type="hidden" name="role" value="sportif">
-            <!-- CSRF token ici si vous l'utilisez -->
 
-            <div class="row g-3">
-                <div class="col-md-6"><input type="text" name="prenom" class="form-control" placeholder="Prénom" required></div>
-                <div class="col-md-6"><input type="text" name="nom" class="form-control" placeholder="Nom" required></div>
-                <div class="col-12"><input type="email" name="email" class="form-control" placeholder="Email" required></div>
-                <div class="col-12"><input type="tel" name="telephone" class="form-control" placeholder="Téléphone (ex: 06...)" required></div>
-                <div class="col-12"><input type="password" name="password" class="form-control" placeholder="Mot de passe (8+ caractères)" required></div>
-                <div class="col-12"><input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" required></div>
-            </div>
-
-            <button type="submit" class="btn btn-sportif w-100 mt-4 fw-bold">Créer mon compte Sportif</button>
-        </form>
-        <div class="text-center mt-3"><a href="#" onclick="backToRole()">← Changer de rôle</a></div>
-    </div>
-
-    <!-- Étape 3 : Formulaire Coach -->
-    <div class="signup-card mx-auto" id="formCoach" style="display:none;">
-        <h4 class="text-center mb-4"><i class="fas fa-chalkboard-teacher text-coach"></i> Inscription Coach</h4>
-        <form id="signupCoachForm" action="process_signup.php" method="POST">
-            <input type="hidden" name="role" value="coach">
-            
-            <div class="row g-3">
-                <div class="col-md-6"><input type="text" name="prenom" class="form-control" placeholder="Prénom" required></div>
-                <div class="col-md-6"><input type="text" name="nom" class="form-control" placeholder="Nom" required></div>
-                <div class="col-12"><input type="email" name="email" class="form-control" placeholder="Email professionnel" required></div>
-                <div class="col-12"><input type="tel" name="telephone" class="form-control" placeholder="Téléphone" required></div>
-                <div class="col-12"><input type="password" name="password" class="form-control" placeholder="Mot de passe (8+ caractères)" required></div>
-                <div class="col-12"><input type="password" name="password_confirm" class="form-control" placeholder="Confirmer le mot de passe" required></div>
-                <div class="col-12"><textarea name="biographie" class="form-control" rows="3" placeholder="Petite biographie / spécialités (affichée sur votre profil)" required></textarea></div>
-            </div>
-
-            <button type="submit" class="btn btn-coach w-100 mt-4 fw-bold">Devenir Coach</button>
-        </form>
-        <div class="text-center mt-3"><a href="#" onclick="backToRole()">← Changer de rôle</a></div>
-    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

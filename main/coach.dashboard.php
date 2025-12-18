@@ -56,11 +56,9 @@ session_start();
                 </ul>
             </div>
 
-            <!-- Main Content -->
             <div class="col-md-9 col-lg-10 p-4">
-                <h2 class="mb-4">Bienvenue, Coach <?php echo $_SESSION["email"] ?> </h2>
+                <h2 class="mb-4"><?php echo $_SESSION["prenom"];?> <?php echo $_SESSION["nom"] ?> </h2>
 
-                <!-- Statistiques simples -->
                 <div class="row mb-4">
                     <div class="col-md-3">
                         <div class="card stat-card shadow">
@@ -115,31 +113,7 @@ session_start();
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <!-- Exemple de lignes - Remplacez par boucle PHP -->
-                                    <tr>
-                                        <td>101</td>
-                                        <td>Marie Laurent</td>
-                                        <td>Natation</td>
-                                        <td>16/12/2025 - 10:00</td>
-                                        <td><span class="badge bg-warning">En attente</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-success me-1" title="Accepter"><i class="fas fa-check"></i></button>
-                                            <button class="btn btn-sm btn-danger me-1" title="Refuser"><i class="fas fa-times"></i></button>
-                                            <button class="btn btn-sm btn-info" title="Détails"><i class="fas fa-eye"></i></button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>102</td>
-                                        <td>Paul Martin</td>
-                                        <td>Football</td>
-                                        <td>15/12/2025 - 18:00</td>
-                                        <td><span class="badge bg-success">Validée</span></td>
-                                        <td>
-                                            <button class="btn btn-sm btn-info" title="Détails"><i class="fas fa-eye"></i></button>
-                                        </td>
-                                    </tr>
-                                    <!-- Ajoutez plus de lignes dynamiquement avec PHP -->
-                                </tbody>
+                                                                </tbody>
                             </table>
                         </div>
                     </div>
