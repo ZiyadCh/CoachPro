@@ -62,20 +62,16 @@
                 <textarea name="biographie" class="form-control" rows="4" required></textarea>
             </div>
             <div class="mb-3">
-                <label>Lien de votre photo</label>
+                <label>Photo</label>
                 <input type="text" name="photo" class="form-control" placeholder="https://..." required>
             </div>
             <div class="mb-3">
                 <label>Discipline</label>
                 <select name="discipline_id" class="form-control" required>
-                    <option value="">Choisissez</option>
                     <option value="Football">Football</option>
                     <option value="Tennis">Tennis</option>
-                    <option value="Natation">Natation</option>
-                    <option value="Athlétisme">Athlétisme</option>
                     <option value="Boxe">Boxe</option>
                     <option value="Musculation">Musculation</option>
-                    <option value="Préparation physique">Préparation physique</option>
                 </select>
             </div>
             <div class="mb-3">

@@ -20,7 +20,7 @@ if ($_POST) {
     $email       = $_POST['email'];
     $password    = $_POST['password'];
     $biographie  = $_POST['biographie'];
-    $photo       = $_POST['photo'];
+    $pfp         = $_POST['photo'];
     $discipline  = $_POST['discipline_id'];
     $certif      = $_POST['certification'];
 
@@ -31,8 +31,7 @@ if ($_POST) {
     $conn->query($sql);
 
     $user_id = $conn->insert_id;
-    $sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certification) 
-         VALUES ($user_id, '$biographie', '$photo', $discipline, '$certif')";
+    $sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certification) VALUES ($user_id, '$biographie', '$pfp', $discipline, '$certif')";
 
     $conn->query($sql2);
 

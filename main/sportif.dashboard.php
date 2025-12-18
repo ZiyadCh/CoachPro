@@ -72,9 +72,8 @@ session_start();
             <div class="col-md-3 col-lg-2 sidebar p-3">
                 <ul class="nav flex-column mt-4">
                     <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-home me-2"></i>Accueil</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-search me-2"></i>Découvrir les Coachs</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-calendar-check me-2"></i>Mes Réservations</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
+                    <li class="nav-item"><a href="/main/sportif.profile.php" class="nav-link"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link">Deconnecter</a></li>
                 </ul>
             </div>
 
@@ -82,33 +81,40 @@ session_start();
             <div class="col-md-9 col-lg-10 p-4">
                 <h2 class="mb-4">Découvrir les Coachs</h2>
 
-                <div class="mb-4">
-                    <select class="form-select w-25" id="filterDiscipline">
-                        <option value="">Toutes les disciplines</option>
-                        <option>Football</option>
-                        <option>Tennis</option>
-                        <option>Natation</option>
-                        <option>Boxe</option>
-                    </select>
-                </div>
+
 
                 <div class="row g-4">
                     <?php
-                    echo   "<div class='col-md-6 col-lg-4'>
+
+                    $host     = 'localhost';
+                    $username = 'ziadphp';
+                    $password = 'Z3r0_123!';
+                    $database = 'coachpro';
+
+                    $conn = mysqli_connect($host, $username, $password, $database);
+
+                    if (!$conn) {
+                        die("Erreur" . mysqli_connect_error());
+                    }
+
+                    $res = $conn->query("SELECT * FROM user inner join coach where role='coach'");
+                    while ($coach = $res->fetch_assoc()) {
+
+                        echo   "<div class='col-md-6 col-lg-4'>
                         <div class='card coach-card shadow-sm'>
-                            <img src='https://via.placeholder.com/400x200?text=Photo+Coach' class='card-img-top coach-img' alt='Photo coach'>
+                            <img src='".$coach['photo']."' class='card-img-top coach-img' alt='Photo coach'>
                             <div class='card-body'>
-                                <h5 class='card-title'> " . $_SESSION['prenom']  . " " . $_SESSION['nom'] . " </h5>
-                                <p class='text-muted'>Coach certifiée - 12 ans d'expérience</p>
+                                <h5 class='card-title'> " . $coach['prenom']  . " " . $coach['nom'] . " </h5>
                                 <div class='mb-3'>
-                                    <span class='badge badge-discipline me-1'>Tennis</span>
-                                    <span class='badge badge-discipline me-1'>Préparation physique</span>
+                                    <span class='badge badge-discipline me-1'>" . $coach['discipline_sportif'] . "</span>
                                 </div>
-                                <p class='card-text'>Spécialiste en technique et endurance. Séances personnalisées sur Paris.</p>
-                     <a href='coach.profile.php?id=1' class='btn btn-success w-100'>Voir le profil & Réserver</a>
+                                <p class='card-text'> " . $coach['biographie'] ." </p>
+                     <a href='coach.profile.php?id=1' class='btn btn-success w-100'>Profile </a>
                             </div>
                         </div>
                     </div>";
+                    }
+
                     ?>
                 </div>
 

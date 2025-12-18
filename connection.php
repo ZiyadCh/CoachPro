@@ -1,5 +1,6 @@
 <?php 
- $host     = 'localhost';
+session_start();
+$host     = 'localhost';
 $username = 'ziadphp';
 $password = 'Z3r0_123!';          
 $database = 'coachpro';
