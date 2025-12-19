@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 session_start();
 
 $host = 'localhost';
@@ -9,37 +10,39 @@ $password = 'Z3r0_123!';
 $database = 'coachpro';
 
 $conn = mysqli_connect($host, $username, $password, $database);
-
 if (!$conn) {
     die("Erreur de connexion : " . mysqli_connect_error());
 }
-if ($_POST) {
 
-    $prenom      = $_POST['prenom'];
-    $nom         = $_POST['nom'];
-    $email       = $_POST['email'];
+if ($_POST) {
+    $prenom      = $conn->real_escape_string($_POST['prenom']);
+    $nom         = $conn->real_escape_string($_POST['nom']);
+    $email       = $conn->real_escape_string($_POST['email']);
     $password    = $_POST['password'];
-    $biographie  = $_POST['biographie'];
-    $pfp         = $_POST['photo'];
-    $discipline  = $_POST['discipline_id'];
-    $certif      = $_POST['certification'];
+    $biographie  = $conn->real_escape_string($_POST['biographie']);
+    $pfp         = $conn->real_escape_string($_POST['photo']);
+    $discipline  = $conn->real_escape_string($_POST['discipline_id']);
+    $certif      = $conn->real_escape_string($_POST['certification']);
 
     $hash = password_hash($password, PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO user (prenom, nom, email, role, password_hash) 
-        VALUES ('$prenom', '$nom', '$email', 'coach', '$hash')";
-    $conn->query($sql);
+    $sql = "INSERT INTO user 
+            (prenom, nom, email, password_hash, role, biographie, photo, discipline_sportif, certification)
+            VALUES 
+            ('$prenom', '$nom', '$email', '$hash', 'coach', '$biographie', '$pfp', '$discipline', '$certif')";
 
-    $user_id = $conn->insert_id;
-    $sql2 = "INSERT INTO coach (id, biographie, photo, discipline_sportif, certification) VALUES ($user_id, '$biographie', '$pfp', $discipline, '$certif')";
+    if ($conn->query($sql) === TRUE) {
+        $user_id = $conn->insert_id;
 
-    $conn->query($sql2);
+        $_SESSION['user_id'] = $user_id;
+        $_SESSION['prenom']  = $_POST['prenom'];  
+        $_SESSION['nom']     = $_POST['nom'];
+        $_SESSION['role']    = 'coach';
 
-    $_SESSION['user_id'] = $user_id;
-    $_SESSION['prenom']  = $prenom;
-    $_SESSION['nom']     = $nom;
-    $_SESSION['role']    = 'coach';
-
-    header("Location: /main/coach.dashboard.php");
-    exit();
+        header("Location: /main/coach.dashboard.php");
+        exit();
+    } else {
+        echo "Erreur : " . $conn->error;
+    }
 }
+?>

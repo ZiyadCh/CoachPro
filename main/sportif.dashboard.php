@@ -97,7 +97,7 @@ session_start();
                         die("Erreur" . mysqli_connect_error());
                     }
 
-                    $res = $conn->query("SELECT * FROM user inner join coach where role='coach'");
+                    $res = $conn->query("SELECT * FROM user where role='coach'");
                     while ($coach = $res->fetch_assoc()) {
 
                         echo   "<div class='col-md-6 col-lg-4'>
