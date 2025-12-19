@@ -73,7 +73,7 @@ session_start();
                 <ul class="nav flex-column mt-4">
                     <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-home me-2"></i>Accueil</a></li>
                     <li class="nav-item"><a href="/main/sportif.profile.php" class="nav-link"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Deconnecter</a></li>
+                    <li class="nav-item mt-5"><a href="/auth/logout.php" class="nav-link"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
                 </ul>
             </div>
 
@@ -102,15 +102,16 @@ session_start();
 
                         echo   "<div class='col-md-6 col-lg-4'>
                         <div class='card coach-card shadow-sm'>
-                            <img src='".$coach['photo']."' class='card-img-top coach-img' alt='Photo coach'>
-                            <div class='card-body'>
-                                <h5 class='card-title'> " . $coach['prenom']  . " " . $coach['nom'] . " </h5>
+                            <img src='" . $coach['photo'] . "' class='card-img-top coach-img' alt='Photo coach'>
+                            <form action='coach.profile.php' method='POST' class='card-body'>
+                                <input type='hidden' name='id' value=" . $coach['id'] . ">
+                                <h5 name='prenom' class='card-title'> " . $coach['prenom']  . " " . $coach['nom'] . " </h5>
                                 <div class='mb-3'>
                                     <span class='badge badge-discipline me-1'>" . $coach['discipline_sportif'] . "</span>
                                 </div>
-                                <p class='card-text'> " . $coach['biographie'] ." </p>
-                     <a href='coach.profile.php?id=1' class='btn btn-success w-100'>Profile </a>
-                            </div>
+                                <p class='card-text'> " . $coach['biographie'] . " </p>
+                     <button type='submit' class='btn btn-success w-100'>Profile </button>
+                            </form>
                         </div>
                     </div>";
                     }
@@ -122,32 +123,11 @@ session_start();
                 <div class="table-responsive">
                     <table class="table table-hover align-middle">
                         <thead class="table-success">
-                            <tr>
-                                <th>Coach</th>
-                                <th>Discipline</th>
-                                <th>Date & Heure</th>
-                                <th>Statut</th>
-                                <th>Actions</th>
-                            </tr>
+                            <tr></tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Marie Laurent</td>
-                                <td>Tennis</td>
-                                <td>18/12/2025 - 14:00</td>
-                                <td><span class="badge bg-success">Validée</span></td>
-                                <td>
-                                    <a href="#" class="btn btn-sm btn-info">Détails</a>
-                                    <a href="#" class="btn btn-sm btn-warning">Modifier</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Ahmed Benali</td>
-                                <td>Football</td>
-                                <td>20/12/2025 - 10:00</td>
-                                <td><span class="badge bg-warning">En attente</span></td>
-                                <td><a href="#" class="btn btn-sm btn-secondary">Annuler</a></td>
-                            </tr>
+                            <tr></tr>
+                            <tr></tr>
                         </tbody>
                     </table>
                 </div>

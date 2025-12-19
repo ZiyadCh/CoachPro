@@ -49,10 +49,8 @@ session_start();
                 <h4 class="text-white text-center mb-4">Coach Dashboard</h4>
                 <ul class="nav flex-column">
                     <li class="nav-item"><a href="#" class="nav-link active"><i class="fas fa-home me-2"></i>Dashboard</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-calendar-check me-2"></i>Réservations</a></li>
                     <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-user me-2"></i>Mon Profil</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link"><i class="fas fa-clock me-2"></i>Disponibilités</a></li>
-                    <li class="nav-item mt-5"><a href="logout.php" class="nav-link"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
+                    <li class="nav-item mt-5"><a href="/auth/logout.php" class="nav-link"><i class="fas fa-sign-out-alt me-2"></i>Déconnexion</a></li>
                 </ul>
             </div>
 
@@ -88,7 +86,7 @@ session_start();
                         <div class="card stat-card shadow">
                             <div class="card-body text-center">
                                 <h5>Prochaine séance</h5>
-                                <p>Aujourd'hui 14:00<br>Jean Dupont - Tennis</p>
+                                <p></p>
                             </div>
                         </div>
                     </div>
@@ -104,9 +102,7 @@ session_start();
                             <table class="table table-hover align-middle">
                                 <thead class="table-success">
                                     <tr>
-                                        <th>ID</th>
                                         <th>Sportif</th>
-                                        <th>Discipline</th>
                                         <th>Date & Heure</th>
                                         <th>Statut</th>
                                         <th>Actions</th>
